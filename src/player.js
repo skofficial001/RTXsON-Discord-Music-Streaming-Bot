@@ -1,5 +1,5 @@
-import {GuildMember} from "discord.js"
-import {Player, QueryType} from "discord-player"
+import { GuildMember } from "discord.js"
+import { Player, QueryType } from "discord-player"
 
 // Importing our Client:
 import client from "./client.js"
@@ -9,10 +9,10 @@ const player = new Player(client)
 
 // Handling error messages:
 player.on("error", (queue, error) => {
-    console.log(`[${queue.guild.name}] Error emitted from the queue: ${error.message}`)
+    console.log(`[${queue.guild.name}] Error in the queue feature: ${error.message}`)
 })
 player.on("connectionError", (queue, error) => {
-    console.log(`[${queue.guild.name}] Error emitted from the connection: ${error.message}`)
+    console.log(`[${queue.guild.name}] Error in the connection feature: ${error.message}`)
 })
 
 // Player event listeners:
@@ -58,7 +58,7 @@ export async function playerInteractions(interaction) {
             .catch(() => {})
         if (!searchResult || !searchResult.tracks.length) return void interaction.followUp({ content: "🐿️💨 | No results..." })
 
-        const queue = await player.createQueue(interaction.guild, {
+        const queue = player.createQueue(interaction.guild, {
             metadata: interaction.channel
         })
     
@@ -86,7 +86,7 @@ export async function playerInteractions(interaction) {
         })
     }
 
-    // "Sopping songs" functionality:
+    // "Stopping songs" functionality:
     else if (interaction.commandName === "stop") {
         await interaction.deferReply()
         const queue = player.getQueue(interaction.guildId)
@@ -95,5 +95,3 @@ export async function playerInteractions(interaction) {
         return void interaction.followUp({ content: "🚫 | Stopped the player." })
     }
 }
-
-export default player
