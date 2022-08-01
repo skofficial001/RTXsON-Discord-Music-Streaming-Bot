@@ -54,7 +54,7 @@ export async function clientMessages(message){
     // "!help" command message:
     if (message.content === "!help") {
         await message.reply(`
-**Welcome to Powah's RTXsON and thank your for supporting it!**
+**Welcome to Powah's RTXsON and thank you for supporting it!**
 
 **» Commands:**
     _!help ∷  Help Message - Commands and contact info._
