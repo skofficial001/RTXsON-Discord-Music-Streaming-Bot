@@ -50,6 +50,27 @@ export async function clientMessages(message){
         // Deployment confirmation message:
         await message.reply("Deployed!")
     }
+
+    // "!help" command message:
+    if (message.content === "!help") {
+        await message.reply(`
+**Welcome to Powah's RTXsON and thank your for supporting it!**
+
+**» Commands:**
+    _!help ∷  Help Message - Commands and contact info._
+
+Slash Commands Section:
+    _/play query:music name ∷  Play an specific music._
+    _/stop ∷  Stop current music._
+    _/skip ∷  Skip current music._
+    _/queue ∷  Shows up queue playlist._
+
+**» Contact:**
+https://pablofelps.tk | ![Github](https://github.com/PabloFLPs)
+
+© Pablo FELPs#5501
+        `)
+    }
 }
 
 export default client
