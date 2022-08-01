@@ -28,6 +28,7 @@ export async function clientMessages(message){
 
 **» Commands:**
     _!help ∷  Help Message - Commands and contact info._
+    _!reset ∷  Reset Application._
 
 Slash Commands Section:
     _/play query:music name ∷  Play an specific music._
