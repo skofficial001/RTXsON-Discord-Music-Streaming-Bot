@@ -1,1 +1,1 @@
-worker: yarn pm2-start
+worker: pm2 bot.js
