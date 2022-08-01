@@ -65,10 +65,9 @@ Slash Commands Section:
     _/skip ∷  Skip current music._
     _/queue ∷  Shows up queue playlist._
 
-**» Contact:**
-https://pablofelps.tk | ![Github](https://github.com/PabloFLPs)
+**» Developed by Pablo FELPs#5501:**
 
-© Pablo FELPs#5501
+© PabloFELPs
         `)
     }
 }
