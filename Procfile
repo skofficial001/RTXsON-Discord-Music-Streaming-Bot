@@ -1,1 +1,1 @@
-worker: pm2-start
+worker: yarn pm2-start
