@@ -13,10 +13,10 @@ import { playerInteractions } from "./src/player.js"
 // Logging our Client with the bot token:
 client.login(config.token)
 
-client.once("ready", () => {console.log("RTXsON ready to go!")})
+client.once("ready", () => console.log("RTXsON ready to go!"))
 
-// Messages:
+// Messages/Slash Commands:
 client.on("messageCreate", (message) => clientMessages(message))
 
-// Interactions:
+// Bot Interactions/Player:
 client.on("interactionCreate", (interaction) => playerInteractions(interaction))
