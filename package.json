@@ -9,16 +9,13 @@
     "discord-player": "^5.2.2",
     "discord.js": "13.9.0",
     "dotenv": "^16.0.1",
-    "ffmpeg-static": "^5.0.2",
-    "pm2": "^5.2.0"
+    "ffmpeg-static": "^5.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
   },
   "scripts": {
     "dev": "nodemon bot.js",
-    "node": "node bot.js",
-    "start": "pm2 start bot.js",
-    "stop": "pm2 stop 0"
+    "start": "node bot.js"
   }
 }
