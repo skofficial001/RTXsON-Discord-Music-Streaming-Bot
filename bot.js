@@ -1,3 +1,5 @@
+import "dotenv/config"
+
 // Importing our config.json file settings:
 import config from './src/config/config.js'
 
