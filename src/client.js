@@ -3,9 +3,9 @@ import { Client, Intents } from "discord.js"
 // Creating our Client:
 const client = new Client({
     intents: [
-        Intents.FLAGS.GUILDS,
-        Intents.FLAGS.GUILD_MESSAGES,
-        Intents.FLAGS.GUILD_VOICE_STATES
+        Intents.FLAGS.GUILDS, // access to channels;
+        Intents.FLAGS.GUILD_MESSAGES, // access to channel messages;
+        Intents.FLAGS.GUILD_VOICE_STATES // access to channel voice state;
     ]
 })
 
@@ -18,6 +18,7 @@ export async function clientMessages(message){
     if (message.author.bot.id || !message.guild) return
     if (!client.application?.owner) await client.application?.fetch()
 
+    // This will make sure that the "commands deployment" is being done by the channel owner.
     if (message.content === "!deploy" && message.author.id === client.application?.owner?.id){
         await message.guild.commands.set([
             {
@@ -46,6 +47,7 @@ export async function clientMessages(message){
             }
         ])
 
+        // Deployment confirmation message:
         await message.reply("Deployed!")
     }
 }
