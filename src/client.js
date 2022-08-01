@@ -10,13 +10,36 @@ const client = new Client({
 })
 
 // Handling error messages:
-client.on("error", console.error)
+client.on("error", () => {
+    console.error
+    process.exit()
+})
 client.on("warn", console.warn)
 
 // Slash Commands:
 export async function clientMessages(message){
     if (message.author.bot.id || !message.guild) return
     if (!client.application?.owner) await client.application?.fetch()
+    
+    // "!help" command message:
+    if (message.content === "!help") {
+        await message.reply(`
+**Welcome to Powah's RTXsON and thank you for supporting it!**
+
+**» Commands:**
+    _!help ∷  Help Message - Commands and contact info._
+
+Slash Commands Section:
+    _/play query:music name ∷  Play an specific music._
+    _/stop ∷  Stop current music._
+    _/skip ∷  Skip current music._
+    _/queue ∷  Shows up queue playlist._
+
+**» Developed by Pablo FELPs#5501:**
+
+© PabloFELPs
+        `)
+    }
 
     // This will make sure that the "commands deployment" is being done by the channel owner.
     if (message.content === "!deploy" && message.author.id === client.application?.owner?.id){
@@ -52,23 +75,9 @@ export async function clientMessages(message){
     }
 
     // "!help" command message:
-    if (message.content === "!help") {
-        await message.reply(`
-**Welcome to Powah's RTXsON and thank you for supporting it!**
-
-**» Commands:**
-    _!help ∷  Help Message - Commands and contact info._
-
-Slash Commands Section:
-    _/play query:music name ∷  Play an specific music._
-    _/stop ∷  Stop current music._
-    _/skip ∷  Skip current music._
-    _/queue ∷  Shows up queue playlist._
-
-**» Developed by Pablo FELPs#5501:**
-
-© PabloFELPs
-        `)
+    if (message.content === "!reset") {
+        await message.reply("Resetting application...")
+        process.exit()
     }
 }
 

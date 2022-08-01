@@ -16,6 +16,8 @@
   },
   "scripts": {
     "dev": "nodemon bot.js",
-    "start": "node bot.js"
+    "start": "node bot.js",
+    "pm2-start": "pm2 start bot.js",
+    "pm2-stop": "pm2 stop 0"
   }
 }
