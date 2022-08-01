@@ -1,6 +1,6 @@
 // "Intents" does not exist anymore, this is why I switched to "GatewayIntentBits".
 //import {Client, GuildMember, GatewayIntentBits} from "discord.js"
-import {Client, GuildMember, Intents} from "discord.js"
+import {Client, Intents} from "discord.js"
 
 // Creating our Client:
 /*
