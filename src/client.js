@@ -42,48 +42,49 @@ Slash Commands Section:
         `)
     }
 
+    // "!deploy" command message:
     // This will make sure that the "commands deployment" is being done by the channel owner.
-    if (message.author.id === client.application?.owner?.id) {
-        // "!deploy" command message:
-        if (message.content === "!deploy"){
-            await message.guild.commands.set([
-                {
-                    name: "play",
-                    description: "Plays a song from youtube",
-                    options: [
-                        {
-                            name: "query",
-                            type: "STRING",
-                            description: "The song you want to play",
-                            required: true
-                        }
-                    ]
-                },
-                {
-                    name: "skip",
-                    description: "Skip to the current song"
-                },
-                {
-                    name: "queue",
-                    description: "See the queue"
-                },
-                {
-                    name: "stop",
-                    description: "Stop the player"
-                }
-            ])
-    
-            // Deployment confirmation message:
-            await message.reply("Deployed!")
-        }
-    
-        // "!reset" command message:
-        if (message.content === "!reset") {
+    if (message.content === "!deploy" && message.author.id === client.application?.owner?.id){
+        await message.guild.commands.set([
+            {
+                name: "play",
+                description: "Plays a song from youtube",
+                options: [
+                    {
+                        name: "query",
+                        type: "STRING",
+                        description: "The song you want to play",
+                        required: true
+                    }
+                ]
+            },
+            {
+                name: "skip",
+                description: "Skip to the current song"
+            },
+            {
+                name: "queue",
+                description: "See the queue"
+            },
+            {
+                name: "stop",
+                description: "Stop the player"
+            }
+        ])
+
+        // Deployment confirmation message:
+        await message.reply("Deployed!")
+    }
+
+    // "!reset" command message:
+    if (message.content === "!reset") {
+        if (message.author.id === client.application?.owner?.id) {
             await message.reply("Resetting application...")
             process.exit()
         }
+        // Not channel owner:
+        else await message.reply("You are not the channel owner!")
     }
-    else await message.reply("You are not the channel owner!")
 }
 
 export default client
